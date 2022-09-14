@@ -7,7 +7,7 @@ const modalBackground = document.getElementById("modal-background");
 
 // variables
 let userText = display.innerText;
-let errorCount = 5;
+let errorCount = 0;
 let startTime;
 let questionText = question.innerText;
 
@@ -15,7 +15,6 @@ let questionText = question.innerText;
 fetch("./texts.json")
   .then((res) => res.json())
   .then((data) => {
-    console.log(data);
     questionText = data[Math.floor(Math.random() * data.length)];
     question.innerHTML = questionText;
   });
@@ -42,6 +41,7 @@ const typeController = (e) => {
   userText += newLetter;
 
   const newLetterCorrect = validate(newLetter);
+  console.log(newLetter);
 
   if (newLetterCorrect) {
     display.innerHTML += `<span class="green">${
@@ -51,6 +51,7 @@ const typeController = (e) => {
     display.innerHTML += `<span class="red">${
       newLetter === " " ? "▪" : newLetter
     }</span>`;
+    errorCount += newLetter.length;
   }
 
   // check if given question text is equal to user typed text
