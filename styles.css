@@ -10,6 +10,15 @@ body {
   background-position: left top;
   font-family: "Zilla Slab", serif;
 }
+nav ul {
+  list-style: none;
+}
+nav ul li a {
+  color: white;
+  font-size: 20px;
+  float: right;
+  margin-right: 30px;
+}
 
 .box-container {
   width: 70%;
@@ -185,6 +194,16 @@ button {
   .box-container {
     padding: 0 20px;
     width: 100%;
+  }
+  .card {
+    flex-direction: column;
+  }
+}
+@media only screen and (min-width: 700px) and (max-width: 1024px) {
+  .box-container {
+    padding: 0 20px;
+    width: 100%;
+    flex-direction: column;
   }
   .card {
     flex-direction: column;

@@ -7,7 +7,7 @@ const modalBackground = document.getElementById("modal-background");
 
 // variables
 let userText = display.innerText;
-let errorCount = 0;
+let errorCount = 5;
 let startTime;
 let questionText = question.innerText;
 
@@ -15,6 +15,7 @@ let questionText = question.innerText;
 fetch("./texts.json")
   .then((res) => res.json())
   .then((data) => {
+    console.log(data);
     questionText = data[Math.floor(Math.random() * data.length)];
     question.innerHTML = questionText;
   });
@@ -67,11 +68,11 @@ const validate = (key) => {
 
 // FINISHED TYPING
 const gameOver = () => {
-  document.removeEventListener("keyup", typeController);
+  document.removeEventListener("keydown", typeController);
   // the current time is the finish time
   // so total time taken is current time - start time
   const finishTime = new Date().getTime();
-  const timeTaken = (finishTime - startTime) / 1000;
+  const timeTaken = Math.floor((finishTime - startTime) / 1000);
 
   // show result modal
   resultModal.innerHTML = "";
