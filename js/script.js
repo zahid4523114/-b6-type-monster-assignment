@@ -41,7 +41,6 @@ const typeController = (e) => {
   userText += newLetter;
 
   const newLetterCorrect = validate(newLetter);
-  console.log(newLetter);
 
   if (newLetterCorrect) {
     display.innerHTML += `<span class="green">${
