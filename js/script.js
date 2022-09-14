@@ -6,10 +6,10 @@ const resultModal = document.getElementById("result");
 const modalBackground = document.getElementById("modal-background");
 
 // variables
-let userText = "";
+let userText = display.innerText;
 let errorCount = 0;
 let startTime;
-let questionText = "";
+let questionText = question.innerText;
 
 // Load and display question
 fetch("./texts.json")
@@ -75,8 +75,8 @@ const gameOver = () => {
 
   // show result modal
   resultModal.innerHTML = "";
-  resultModal.classList.remove("hidden");
-  modalBackground.classList.remove("hidden");
+  resultModal.classList.toggle("hidden");
+  modalBackground.classList.toggle("hidden");
   // clear user text
   display.innerHTML = "";
   // make it inactive
