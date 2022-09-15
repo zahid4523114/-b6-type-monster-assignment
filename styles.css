@@ -209,8 +209,9 @@ button {
     width: 100%;
   }
   #histories {
-    display: flex;
-    flex-wrap: nowrap;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
   }
   .card {
     flex-direction: column;
